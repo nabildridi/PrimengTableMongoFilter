@@ -1,6 +1,6 @@
 > ## This project is a rewrite  of my other archived project [SpringBootGenericPagingFilteringForPrimengTable](https://github.com/nabildridi/SpringBootGenericPagingFilteringForPrimengTable) to make it simple and easy to install
 > 
-##  Spring Boot filter to convert PrimeNg table json request to JPA specification (paging, sorting and filtering for PrimeNg tables)
+##  Spring Boot filter to convert PrimeNg table json request to Mongodb query (paging, sorting and filtering for PrimeNg tables)
 
 
 
@@ -18,22 +18,14 @@ The goal of the this project is to make this server side processing the most gen
 
 ### Step 1 : Add the dependency to your project
 
-#### For Spring Boot 3 only
-```xml
-    <dependency>    
-	    <groupId>io.github.nabildridi</groupId>    
-	    <artifactId>PrimengTableSpringFilter</artifactId>    
-	    <version>1.5</version>    
-    </dependency>
-```
 
-#### For Spring Boot 4 only
+####  Spring Boot 4 only
 ```xml
-    <dependency>    
-	    <groupId>io.github.nabildridi</groupId>    
-	    <artifactId>PrimengTableSpringFilter</artifactId>    
-	    <version>1.6</version>    
-    </dependency>
+		<dependency>
+			<groupId>io.github.nabildridi</groupId>
+			<artifactId>PrimengTableMongoFilter</artifactId>
+			<version>1.0</version>
+		</dependency>
 ```
 
 ### Step 2 : Configure your Primeng table to work in 'lazy' mode
@@ -61,7 +53,10 @@ The goal of the this project is to make this server side processing the most gen
 Example  :
 ```java
     @Repository
-    public  interface UsersRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+    public  interface UsersRepository extends extends MongoRepository<Produit, String> {
+		@Query("?0")
+		Page<Produit> findAll(Document document, Pageable pageable);
+	}
 ```
 
 
@@ -73,7 +68,7 @@ Example  :
     import org.springframework.beans.factory.annotation.Autowired;    
     import org.springframework.data.domain.Page;    
     import org.springframework.data.domain.Pageable;    
-    import org.springframework.data.jpa.domain.Specification;    
+    import org.bson.Document;    
     import org.springframework.web.bind.annotation.PostMapping;    
     import org.springframework.web.bind.annotation.RestController;   
     import  com.turkraft.springfilter.boot.Filter;    
@@ -85,8 +80,8 @@ Example  :
 	    private UsersRepository usersRepository;
 	    
 	    @PostMapping(value = "/paginateUsers")    
-	    public Page<User> paginate(@Filter Specification<User> spec, @Pagination Pageable page) {  
-		    return  usersRepository.findAll(spec, page);    
+	    public Page<User> paginate(@Filter(entityClass = User.class) Document document, Pageable page) {  
+		    return  usersRepository.findAll(document, page);    
 	    }
     }
 ```
