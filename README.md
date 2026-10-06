@@ -9,7 +9,7 @@
 PrimeNg tables have a 'lazy' mode when displaying data, it sends all the requests of paging, sorting and filtering to the server to be processed.
 The goal of the this project is to make this server side processing the most generic possible (Spring boot).
 
-[![Sonatype Central](https://maven-badges.sml.io/sonatype-central/io.github.nabildridi/PrimengTableSpringFilter/badge.svg?subject=Maven%20Central&color=blue)](https://mvnrepository.com/artifact/io.github.nabildridi/PrimengTableSpringFilter/1.6)
+[![Sonatype Central](https://maven-badges.sml.io/sonatype-central/io.github.nabildridi/PrimengTableMongoFilter/badge.svg?subject=Maven%20Central&color=blue)](https://mvnrepository.com/artifact/io.github.nabildridi/PrimengTableMongoFilter/1.0)
 
 
 > [!NOTE]  
