@@ -6,24 +6,24 @@
 
 	<groupId>io.github.nabildridi</groupId>
 	<artifactId>PrimengTableMongoFilter</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<packaging>jar</packaging>
 
 
-	<name>io.github.nabildridi:PrimengTableSpringFilter</name>
+	<name>io.github.nabildridi:PrimengTableMongoFilter</name>
 
 	<description>
-		Convert Primeng table json request to a JPA specification
+		Convert Primeng table json request to a Mongodb query
 	</description>
 
-	<url>https://github.com/nabildridi/PrimengTableSpringFilter</url>
+	<url>https://github.com/nabildridi/PrimengTableMongoFilter</url>
 
 	<scm>
 		<connection>
-			scm:git:git://github.com/nabildridi/PrimengTableSpringFilter.git</connection>
+			scm:git:git://github.com/nabildridi/PrimengTableMongoFilter.git</connection>
 		<developerConnection>
-			scm:git:ssh://github.com/nabildridi/PrimengTableSpringFilter.git</developerConnection>
-		<url>https://github.com/nabildridi/PrimengTableSpringFilter/tree/main</url>
+			scm:git:ssh://github.com/nabildridi/PrimengTableMongoFilter.git</developerConnection>
+		<url>https://github.com/nabildridi/PrimengTableMongoFilter/tree/main</url>
 	</scm>
 
 	<developers>

@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.nd.primeng.filter"},{"l":"org.nd.primeng.search"}];updateSearchResults();
