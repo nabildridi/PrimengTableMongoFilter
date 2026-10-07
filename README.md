@@ -48,7 +48,7 @@ The goal of the this project is to make this server side processing the most gen
         });
       }
 ```
-### Step 4 : Add JpaSpecificationExecutor to your repository:
+### Step 4 : Add MongoRepository to your repository:
 
 Example  :
 ```java
