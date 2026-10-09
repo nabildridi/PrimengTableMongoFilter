@@ -273,7 +273,7 @@ public class SearchBuilder {
 
 		List<String> queries = new ArrayList<String>();
 
-		String template = "{0}~~''%{1}%''";
+		String template = "{0}~~''*{1}*''";
 		for (String fieldName : parsingResult.getGlobalFields()) {
 
 			String query = MessageFormat.format(template, fieldName, valueToSearch);
@@ -319,13 +319,13 @@ public class SearchBuilder {
 
 		if (type == ColumnType.TEXT) {
 			if (matchMode.equals("contains") || matchMode.equals("default"))
-				operator = "{0}~~''%{1}%''";
+				operator = "{0}~~''*{1}*''";
 			if (matchMode.equals("startsWith"))
-				operator = "{0}~~''{1}%''";
+				operator = "{0}~~''{1}*''";
 			if (matchMode.equals("notContains"))
-				operator = "not exists({0}~~''%{1}%'')";
+				operator = "not exists({0}~~''*{1}*'')";
 			if (matchMode.equals("endsWith"))
-				operator = "{0}~~''%{1}''";
+				operator = "{0}~~''*{1}''";
 			if (matchMode.equals("equals"))
 				operator = "{0}:''{1}''";
 			if (matchMode.equals("notEquals"))
